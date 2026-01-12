@@ -55,7 +55,7 @@ const COLOR_GAME_CONFIG = {
   },
   
   // Seed for deterministic random generation
-  BASE_SEED: 0xCOLOR1234,
+  BASE_SEED: 0x12345678,
   
   // Maximum rounds to track for statistics
   MAX_HISTORY_ROUNDS: 100

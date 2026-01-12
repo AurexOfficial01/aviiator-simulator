@@ -4,6 +4,8 @@
 const express = require('express');
 const http = require('http');
 const cors = require('cors');
+const gameRoutes = require('./routes/game.routes');
+const authRoutes = require('./routes/auth.routes');
 const helmet = require('helmet');
 const morgan = require('morgan');
 require('dotenv').config();
@@ -55,8 +57,8 @@ app.get('/health', (req, res) => {
 
 // API routes (to be implemented in separate modules)
 app.use('/api/auth', require('./routes/auth.routes')); // Authentication routes
-app.use('/api/users', require('./routes/user.routes')); // User management routes
-app.use('/api/demo', require('./routes/demo.routes')); // Demo game data routes
+app.use('/game', gameRoutes);
+app.use('/auth', authRoutes);
 
 // WebSocket server setup (for future game implementation)
 const initializeWebSocketServer = () => {

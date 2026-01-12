@@ -2,7 +2,7 @@
   "name": "aviiator-simulator",
   "version": "1.0.0",
   "description": "Aviiaor demo platform backend",
-  "main": "server.js",
+  "main": "backend/server.js"
   "scripts": {
     "start": "node backend/server.js"
   },

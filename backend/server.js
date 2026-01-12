@@ -7,6 +7,7 @@ const cors = require('cors');
 const gameRoutes = require('./routes/game.routes');
 const authRoutes = require('./routes/auth.routes');
 const helmet = require('helmet');
+const { connectDB } = require('./database/connect');
 const morgan = require('morgan');
 require('dotenv').config();
 
@@ -158,11 +159,13 @@ app.use((err, req, res, next) => {
 });
 
 // Server startup function
-const startServer = () => {
+const startServer = async () => {
   try {
     // Initialize WebSocket server
     const wss = initializeWebSocketServer();
     
+    await connectDB();
+
     server.listen(PORT, () => {
       console.log(`
       🚀 Aviiaor Demo Platform Backend
